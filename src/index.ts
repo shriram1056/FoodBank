@@ -5,6 +5,7 @@ import { AppDataSource } from "./data-source";
 import { Routes } from "./routes";
 import * as morgan from "morgan";
 import { port } from "./config";
+import { validationResult } from "express-validator";
 
 AppDataSource.initialize()
   .then(async () => {
@@ -22,6 +23,11 @@ AppDataSource.initialize()
         route.route,
         async (req: Request, res: Response, next: Function) => {
           try {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+              return res.status(400).send({ errors: errors.array() });
+            }
+
             const response = await new route.controller()[route.action](
               req,
               res,
