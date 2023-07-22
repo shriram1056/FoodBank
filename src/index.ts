@@ -9,6 +9,8 @@ AppDataSource.initialize()
   .then(async () => {
     // create express app
     const app = express();
+
+    //This middleware is responsible for parsing JSON data. It will parse incoming request bodies that have Content-Type: application/json. for diff content types, there are other other methods in body parser.
     app.use(bodyParser.json());
 
     // register express routes from defined application routes
