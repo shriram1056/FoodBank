@@ -3,7 +3,7 @@ import * as bodyParser from "body-parser";
 import { Request, Response } from "express";
 import { AppDataSource } from "./data-source";
 import { Routes } from "./routes";
-import { User } from "./entity/User";
+import * as morgan from "morgan";
 
 AppDataSource.initialize()
   .then(async () => {
@@ -12,6 +12,8 @@ AppDataSource.initialize()
 
     //This middleware is responsible for parsing JSON data. It will parse incoming request bodies that have Content-Type: application/json. for diff content types, there are other other methods in body parser.
     app.use(bodyParser.json());
+
+    app.use(morgan("dev"));
 
     // register express routes from defined application routes
     Routes.forEach((route) => {

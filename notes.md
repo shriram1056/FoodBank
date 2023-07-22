@@ -59,6 +59,34 @@ npm -i --save-dev package
 
 <br />
 
+## bodyParser
+
+bodyParser.json is responsible for parsing JSON data. It will parse incoming request bodies that have Content-Type: application/json.
+
+```
+POST /test HTTP/1.1
+Host: foo.example
+Content-Type: application/json
+Content-Length: 27
+
+{"key": "value", "another_key": "another_value"}
+```
+
+the request doesn't have body field.
+
+there are other methods in bodyparser is parse other type of data.
+
+```
+PUT /path/to/resource HTTP/1.1
+Host: example.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: <length_of_request_body>
+
+key=value&another_key=another_value
+```
+
+<br />
+
 ## seeding:
 
 seeding is a concept of populating the db with some data at the start of the server.
@@ -67,6 +95,8 @@ seeding is a concept of populating the db with some data at the start of the ser
 
 look at commit message that has the word "seeding" in it.
 
+<br />
+
 ## Snake Naming Strategy:
 
 TypeORM will automatically generate and map table and column names using the "snake_case" convention.
@@ -74,6 +104,8 @@ TypeORM will automatically generate and map table and column names using the "sn
 For example, if you have an entity named UserDetails with a property firstName, the corresponding table in the database will be named user_details, and the column will be named first_name.
 
 `package: typeorm-naming-strategy`
+
+<br />
 
 ## storing date time in postgreSQL:
 
@@ -89,13 +121,15 @@ SELECT '2023-07-11 15:43:00+00'::timestamptz;
 
 https://www.postgresql.org/docs/current/datatype-datetime.html
 
-## how to insert DateTime for weather tables:
+<br />
+
+## how to insert DateTime for table;
 
 ```
 INSERT INTO table(last_updated) VALUES(TIMESTAMP WITH TIME ZONE 'Tuesday July 11, 2023 at 08:00 AST');
 
 id |    last_updated
-----+--------------+------+-------------------+----------+-----------+------------------------
+----+-------------------------+
 13 |   2023-07-11 11:00:00+00
 
 ```
