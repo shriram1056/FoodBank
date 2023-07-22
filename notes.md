@@ -57,6 +57,8 @@ npm -i --save-dev package
 
 `Dotenv` is a zero-dependency module that loads environment variables from a .env file into process.env, for this you need to call its config method, this can be found in config.ts in src
 
+`reflect-metadata` allows you to do runtime reflection on types. see `emitDecoratorMetadata` and `experimentalDecorators` in tsconfig.json
+
 <br />
 
 ## bodyParser
@@ -86,6 +88,14 @@ key=value&another_key=another_value
 ```
 
 <br />
+
+## nodemon:
+
+```
+nodemon -w *.ts -w .env src/index.ts
+```
+
+\*.ts part is a glob pattern that matches all .ts files in the current directory and its subdirectories.
 
 ## seeding:
 
