@@ -55,7 +55,7 @@ npm -i --save-dev package
 
 `morgan package` is for logging info for backend. by default, no backend logs are present and we have chosen tiny as the format.
 
-`Dotenv` is a zero-dependency module that loads environment variables from a .env file into process.env
+`Dotenv` is a zero-dependency module that loads environment variables from a .env file into process.env, for this you need to call its config method, this can be found in config.ts in src
 
 <br />
 

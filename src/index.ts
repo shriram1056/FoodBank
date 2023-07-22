@@ -4,6 +4,7 @@ import { Request, Response } from "express";
 import { AppDataSource } from "./data-source";
 import { Routes } from "./routes";
 import * as morgan from "morgan";
+import { port } from "./config";
 
 AppDataSource.initialize()
   .then(async () => {
@@ -37,10 +38,10 @@ AppDataSource.initialize()
     // setup express app here
 
     // start express server
-    app.listen(3000);
+    app.listen(port);
 
     console.log(
-      "Express server has started on port 3000. Open http://localhost:3000/users to see results"
+      `Express server has started on port ${port}. Open http://localhost:3000/users to see results`
     );
   })
   .catch((error) => console.log(error));
